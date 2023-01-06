@@ -17,8 +17,6 @@ import Segment from "./overlays/Segment.vue";
 import Candles from "./overlays/Candles.vue";
 import Volume from "./overlays/Volume.vue";
 import Splitters from "./overlays/Splitters.vue";
-// import LineTool from "./overlays/LineTool.vue";
-// import RangeTool from "./overlays/RangeTool.vue";
 
 export default {
   name: "Grid",
@@ -229,7 +227,7 @@ export default {
   },
   watch: {
     range: {
-      handler: function () {
+      handler: function() {
         // TODO: Left-side render lag fix:
         // Overlay data is updated one tick later than
         // the main sub. Fast fix is to delay redraw()
@@ -240,14 +238,14 @@ export default {
       deep: true,
     },
     cursor: {
-      handler: function () {
+      handler: function() {
         if (!this.$props.cursor.locked) this.redraw();
       },
       deep: true,
     },
     overlays: {
       // Track changes in calc() functions
-      handler: function (ovs) {
+      handler: function(ovs) {
         for (var ov of ovs) {
           for (var comp of this.$children) {
             if (typeof comp.id !== "string") continue;
